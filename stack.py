@@ -31,3 +31,21 @@ class FullExeption(Exception):
 class EmptyExeption(Exception):
     	def __init__(self):
     		super().__init__('Stack is empty')
+
+##########		
+# Adaptor Design pattern: 이미 만들어진 것(pop)을 다시 재사용
+class Stack2:
+	def __init__(self):
+		self.stack = []
+	
+	def push(self, num):
+		self.stack.append(num)
+
+	def pop(self):
+		if self.isEmpty():
+			raise Exception
+		else:
+			return self.stack.pop()
+
+	def isEmpty(self):
+		return len(self.stack) == 0
